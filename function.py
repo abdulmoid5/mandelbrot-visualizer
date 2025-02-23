@@ -2,7 +2,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def mandelbrot(c, max_iter=100):
-    """Computes the Mandelbrot set iteration count for a given complex number c."""
+    """
+    Computes the Mandelbrot set iteration count for a given complex number c.
+    
+    Parameters:
+    c (complex): The complex number to test for Mandelbrot set inclusion.
+    max_iter (int): The maximum number of iterations to check for divergence.
+    
+    Returns:
+    int: The number of iterations before divergence, or max_iter if bounded.
+    """
     z = 0
     for n in range(max_iter):
         if abs(z) > 2:
@@ -11,7 +20,18 @@ def mandelbrot(c, max_iter=100):
     return max_iter
 
 def generate_mandelbrot(xmin, xmax, ymin, ymax, width, height, max_iter=100):
-    """Generates a Mandelbrot set image in the given coordinate range."""
+    """
+    Generates a Mandelbrot set image in the given coordinate range.
+    
+    Parameters:
+    xmin, xmax (float): The range of real values to compute.
+    ymin, ymax (float): The range of imaginary values to compute.
+    width, height (int): The resolution of the output image.
+    max_iter (int): The maximum number of iterations for Mandelbrot calculations.
+    
+    Returns:
+    numpy.ndarray: A 2D array representing the Mandelbrot set, where values indicate escape time.
+    """
     x = np.linspace(xmin, xmax, width)
     y = np.linspace(ymin, ymax, height)
     
